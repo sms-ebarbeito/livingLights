@@ -1,10 +1,10 @@
 /**
- * salida para 2 IRF540 --> LEDS WHITE 4000k y LEDS 3200k
+ * TWO OUTPUTS IRF540 --> LEDS WHITE 4000k pin  14 & LEDS 3200k pin 12
  */
 
 #define VERSION                   "0.1 Beta"
 
-#define BUTTON_ENABLE_WIFIMANAGER 3 //usar GPIO 3 = RX para entrar a configuración
+#define BUTTON_ENABLE_WIFIMANAGER 3 //use GPIO 3 = RX ENTER CONFIG
 #define LED                       2 //BUILT IN ESP12F BLUE LED
 #define WAIT_TO_INIT              1
 
@@ -15,12 +15,12 @@
 #define PWM_FREQ                  500 //Hz Was 5000 but I think is too high
 
 /**
- * The following 2 config variables are only for DEBUG purposes
+ * The following 2 config vars are only for DEBUG purposes
  **/
 #define ALWAYS_FORGOT_WIFIMANAGER  0
 #define ALWAYS_CLEAN_CONFIG 0
 
-#include <FS.h>                   //this needs to be first, or it all crashes and burns...
+#include <FS.h>                   //this needs to be first, or it all crashes at start up...
 #include <ESP8266WiFi.h>          //https://github.com/esp8266/Arduino
 //needed for library
 #include <DNSServer.h>
@@ -46,7 +46,7 @@ char* netbios = "ESP";
 char server_addr[41] = "10.10.10.90";
 char server_port[6] = "1883";
 char server_user[41] = "user";
-char server_pass[41] = "laprida1235";
+char server_pass[41] = "password";
 char mqtt_topic[41] = "home/livingLights";
 char token[50] = "6c1ca461f9d2a1b7142dfa34dfaaef813b22ec21";
 
